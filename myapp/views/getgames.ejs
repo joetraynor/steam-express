@@ -1,8 +1,7 @@
-<h1> You've made it this far </h1>
-
-<h2> Here is the JSON of your games </h2>
-<%= games %>
-
 <h2> You have <%= gamecount %> game(s) </h2>
 
-<p> Game Name: <%= gamename %> </p>
+<h1>Game Name:</h1>
+<% for (var i = 0; i < games.length; i++) { %>
+  <p><%= games[i].name %></p>
+  <img src="http://media.steampowered.com/steamcommunity/public/images/apps/<%=games[i].appid%>/<%=games[i].img_logo_url%>.jpg">
+<% } %>
