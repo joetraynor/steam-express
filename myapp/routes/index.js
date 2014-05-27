@@ -9,8 +9,14 @@ function getGames(steam_id, res){
     if (!error && response.statusCode == 200) {
       var object = JSON.parse(body);
       var response = object.response;
-      console.log(response.game_count);
-      res.render('getgames', { title: 'Steam API', games: body, gamecount: response.game_count });
+      var RGames = response.games;
+      var gamename = RGames[0].name;
+      // console.log(RGames[0].appid);
+      res.render('getgames', { title: 'Steam API',
+                                games: body,
+                                gamecount: response.game_count,
+                                gamename: gamename
+                                });
     }
   })
 };
